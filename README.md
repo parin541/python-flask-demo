@@ -88,5 +88,4 @@ Feel free to contribute to this project by opening issues or submitting pull req
 - This project was created as a sample Flask application for educational purposes.
 - Special thanks to the Flask community for providing a fantastic web framework.
 
-Enjoy experimenting with the Flask sample application! If you have any questions or need further assistance, please don't hesitate to reach out.
-
+Enjoy experimenting with the Flask sample app! If you have any questions or need further assistance, please don't hesitate to reach out.
