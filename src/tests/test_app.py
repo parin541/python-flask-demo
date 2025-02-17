@@ -1,7 +1,7 @@
 # tests/test_app.py
 
 import unittest
-from Sourcecode.app import app
+from src.app import app
 
 class TestAppRoutes(unittest.TestCase):
     def setUp(self):
