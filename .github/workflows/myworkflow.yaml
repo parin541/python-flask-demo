@@ -16,5 +16,5 @@ jobs:
         with:
           args: >
               -Dsonar.organization=parin541
-              -Dsonar.projectKey=python-flask-demo
+              -Dsonar.projectKey=parin541
               -Dsonar.python.coverage.reportPaths=coverage.xml
