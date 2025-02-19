@@ -2,7 +2,8 @@ name: "sonar_cloud_scan_github_actions1"
 
 on:
   push:
-    branches: [ main ]
+    branches:
+     - main
 
 jobs:
   DemoSonarCloudSCan:
