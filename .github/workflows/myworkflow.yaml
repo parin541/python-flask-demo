@@ -27,5 +27,5 @@ jobs:
           ####projectBaseDir: app/src
           args: >
               -Dsonar.organization=parin541
-              -Dsonar.projectKey=parin541_python-flask-demo
+              -Dsonar.projectKey=python-flask-demo
               -Dsonar.python.coverage.reportPaths=coverage.xml
