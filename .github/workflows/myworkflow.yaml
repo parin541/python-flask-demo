@@ -24,7 +24,7 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          ###projectBaseDir: app/src
+          ####projectBaseDir: app/src
           args: >
               -Dsonar.organization=parin541
               -Dsonar.projectKey=parin541_python-flask-demo
