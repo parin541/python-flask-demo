@@ -5,35 +5,36 @@ on:
     branches:
      - main
      - master
+jobs:
+  DemoSonarCloudSCan:
+    runs-on: ubuntu-latest
 
-  jobs:
-    DemoSonarCloudSCan:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-          with:
-              fetch-depth: 0
-        - name: Set up Python
-          uses: actions/setup-python@v4
-          with:
-              python-version: '3.x'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+            fetch-depth: 0
 
-        - name: Install dependencies
-          run: |
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-            pip install pytest pytest-cov
-        - name: Run tests with coverage
-          run: |
-            pytest --cov=src --cov-report=xml
-        - name: Prepare SonarCloud properties
-          run: |
-            echo "sonar.organization=your_organization_key" > sonar-project.properties
-            echo "sonar.projectKey=your_project_key" >> sonar-project.properties
-            echo "sonar.sources=src" >> sonar-project.properties
-            echo "sonar.python.coverage.reportPaths=coverage.xml" >> sonar-project.properties
-        - name: SonarCloud Scan
-          uses: SonarSource/sonarcloud-github-action@v4
-          env:
-              GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-              SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+            python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+      - name: Run tests with coverage
+        run: |
+          pytest --cov=src --cov-report=xml
+      - name: Prepare SonarCloud properties
+        run: |
+          echo "sonar.organization=your_organization_key" > sonar-project.properties
+          echo "sonar.projectKey=your_project_key" >> sonar-project.properties
+          echo "sonar.sources=src" >> sonar-project.properties
+          echo "sonar.python.coverage.reportPaths=coverage.xml" >> sonar-project.properties
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v4
+        env:
+            GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
