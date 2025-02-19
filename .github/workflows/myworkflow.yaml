@@ -2,9 +2,8 @@ name: "sonar_cloud_scan_github_actions1"
 
 on:
   push:
-    branches:
-     - main
-     - master
+    branches: [ main ]
+
 jobs:
   DemoSonarCloudSCan:
     runs-on: ubuntu-latest
@@ -29,8 +28,8 @@ jobs:
           pytest --cov=src --cov-report=xml
       - name: Prepare SonarCloud properties
         run: |
-          echo "sonar.organization=your_organization_key" > sonar-project.properties
-          echo "sonar.projectKey=your_project_key" >> sonar-project.properties
+          echo "sonar.organization=parin541" > sonar-project.properties
+          echo "sonar.projectKey=python-flask-demo" >> sonar-project.properties
           echo "sonar.sources=src" >> sonar-project.properties
           echo "sonar.python.coverage.reportPaths=coverage.xml" >> sonar-project.properties
       - name: SonarCloud Scan
