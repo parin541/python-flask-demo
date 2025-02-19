@@ -1,4 +1,4 @@
-name: "sonar_cloud_scan_github_actions1"
+name: "sonar_cloud_scan_github_actions"
 
 on:
   push:
