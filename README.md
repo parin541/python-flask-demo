@@ -15,4 +15,10 @@ Steps :
 8.	Click on ‘SetUp’ and then click on ‘Previous version’ and then click ‘Create Project’.
 9.	Quickly verify the default setting and create ‘myworkflow.yaml’ file for Github action.
 10.	Go to root foler for project repo and add file with ‘sonar-project.properties’ and add below code also update code according to project repo name.
+
+  sonar.organization=parin541
+  sonar.projectKey=parin541_python-flask-demo
+  sonar.sources=src
+  sonar.python.coverage.reportPaths=coverage.xml
+
 11.	Go to project repo in Github and add workflow file in ‘./gihub/workflow’ path for GitHub Action and add the code according to your workflow steps.
