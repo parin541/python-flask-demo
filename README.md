@@ -22,3 +22,47 @@ sonar.sources=src
 sonar.python.coverage.reportPaths=coverage.xml
 
 11.	Go to project repo in Github and add workflow file in ‘./gihub/workflow’ path for GitHub Action and add the code according to your workflow steps.
+
+name: "sonar_cloud_scan_github_actions"
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  DemoSonarCloudSCan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+            fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+            python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r src/requirements.txt
+          pip install pytest pytest-cov
+      - name: Run tests with coverage
+        run: |
+          pytest --cov=src --cov-report=xml
+      - name: Prepare SonarCloud properties
+        run: |
+          echo "sonar.organization=parin541" > sonar-project.properties
+          echo "sonar.projectKey=parin541_python-flask-demo" >> sonar-project.properties
+          echo "sonar.sources=src" >> sonar-project.properties
+          echo "sonar.python.coverage.reportPaths=coverage.xml" >> sonar-project.properties
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v4
+        env:
+            GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+
+
+
