@@ -77,5 +77,5 @@ jobs:
 27.	Copy the token and go to project repo on github.
 28.	click on ‘setting’ then click on ‘secrets and variables’ then click ‘Actions’.
 29. Add same name as generate for token as ‘GIT_TOKEN’ and paste generated code in ‘Value’ and then click on ‘Add secret’ button.
-30. Now go to project code repo and push any changes in to  project repo.
+30. Now go to project code repo and push any changes into  project repo.
 
