@@ -24,12 +24,15 @@ sonar.python.coverage.reportPaths=coverage.xml
 11.	Go to project repo in Github and add workflow file in ‘./gihub/workflow’ path for GitHub Action and add the code according to your workflow steps.
 
 name: "sonar_cloud_scan_github_actions"
+
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
+
 jobs:
   DemoSonarCloudSCan:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -59,6 +62,10 @@ jobs:
         env:
             GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+
+
+
 
 ---------------
 12.	Update the ‘myworkflow.yml’ where ever it needs to be updated.
