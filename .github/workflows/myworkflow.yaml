@@ -1,13 +1,10 @@
 name: "sonar_cloud_scan_github_actions"
-
 on:
   push:
-    branches: [ main ]
-
+    branches: [ master ]
 jobs:
   DemoSonarCloudSCan:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
         with:
