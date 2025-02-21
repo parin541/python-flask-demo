@@ -15,14 +15,15 @@ Steps :
 8.	Click on ‘SetUp’ and then click on ‘Previous version’ and then click ‘Create Project’.
 9.	Quickly verify the default setting and create ‘myworkflow.yaml’ file for Github action.
 10.	Go to root folder for project repo and add file with ‘sonar-project.properties’ and add below code also update code according to project repo name.
-
+```
 sonar.organization=parin541
 sonar.projectKey=parin541_python-flask-demo
 sonar.sources=src
 sonar.python.coverage.reportPaths=coverage.xml
+```
 
 11.	Go to project repo in Github and add workflow file in ‘./gihub/workflow’ path for GitHub Action and add the code according to your workflow steps.
-
+```
 name: "sonar_cloud_scan_github_actions"
 on:
   push:
@@ -31,13 +32,16 @@ jobs:
   DemoSonarCloudSCan:
     runs-on: ubuntu-latest
     steps:
+
       - uses: actions/checkout@v4
         with:
             fetch-depth: 0
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
             python-version: '3.x'
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -58,6 +62,10 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
+```
+
+
+
 ---------------
 12.	Update the ‘myworkflow.yml’ where ever it needs to be updated.
 13.	Configure ‘GIT_TOKEN’ and ‘SONAR_TOKEN’ for Sonar cloud project
@@ -77,5 +85,5 @@ jobs:
 27.	Copy the token and go to project repo on github.
 28.	click on ‘setting’ then click on ‘secrets and variables’ then click ‘Actions’.
 29. Add same name as generate for token as ‘GIT_TOKEN’ and paste generated code in ‘Value’ and then click on ‘Add secret’ button.
-30. Now go to project code repo and push any changes in to  project repo.
+30. Now go to project code repo and push any changes into  project repo.
 
