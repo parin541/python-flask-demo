@@ -28,7 +28,6 @@ name: "sonar_cloud_scan_github_actions"
 on:
   push:
     branches: [ main ]
-
 jobs:
   DemoSonarCloudSCan:
     runs-on: ubuntu-latest
